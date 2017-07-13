@@ -6,6 +6,7 @@
 #pragma once
 
 #include "MainPage.g.h"
+#include <opencv2\core\core.hpp>
 
 namespace PhotoMaster
 {
@@ -16,6 +17,12 @@ namespace PhotoMaster
 	{
 	public:
 		MainPage();
-
+	private:
+		cv::Mat _stored_image;
+		void UpdateImage(const cv::Mat& image);
+	private:
+		void loadImageButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void cannyEdgesButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void detectFeaturesButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

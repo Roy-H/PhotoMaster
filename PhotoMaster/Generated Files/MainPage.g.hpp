@@ -25,8 +25,35 @@ void ::PhotoMaster::MainPage::InitializeComponent()
 
 void ::PhotoMaster::MainPage::Connect(int __connectionId, ::Platform::Object^ __target)
 {
-    __connectionId;         // unreferenced 
-    __target;               // unreferenced
+    switch (__connectionId)
+    {
+        case 1:
+            {
+                this->loadImageButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+                (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->loadImageButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::PhotoMaster::MainPage::*)
+                    (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::loadImageButton_Click);
+            }
+            break;
+        case 2:
+            {
+                this->storedImage = safe_cast<::Windows::UI::Xaml::Controls::Image^>(__target);
+            }
+            break;
+        case 3:
+            {
+                this->cannyEdgesButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+                (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->cannyEdgesButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::PhotoMaster::MainPage::*)
+                    (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::cannyEdgesButton_Click);
+            }
+            break;
+        case 4:
+            {
+                this->detectFeaturesButton = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+                (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->detectFeaturesButton))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::PhotoMaster::MainPage::*)
+                    (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::detectFeaturesButton_Click);
+            }
+            break;
+    }
     _contentLoaded = true;
 }
 

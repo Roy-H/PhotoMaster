@@ -7,6 +7,16 @@
 //------------------------------------------------------------------------------
 
 
+namespace Windows {
+    namespace UI {
+        namespace Xaml {
+            namespace Controls {
+                ref class Button;
+                ref class Image;
+            }
+        }
+    }
+}
 
 namespace PhotoMaster
 {
@@ -23,6 +33,10 @@ namespace PhotoMaster
     private:
         bool _contentLoaded;
     
+        private: ::Windows::UI::Xaml::Controls::Button^ loadImageButton;
+        private: ::Windows::UI::Xaml::Controls::Image^ storedImage;
+        private: ::Windows::UI::Xaml::Controls::Button^ cannyEdgesButton;
+        private: ::Windows::UI::Xaml::Controls::Button^ detectFeaturesButton;
     };
 }
 

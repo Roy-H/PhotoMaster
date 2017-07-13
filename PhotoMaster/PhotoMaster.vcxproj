@@ -115,13 +115,21 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>%OCV2015_ROOT%\modules\core\include;%OCV2015_ROOT%\modules\imgproc\include;%OCV2015_ROOT%\modules\imgcodecs\include;%OCV2015_ROOT%\modules\objdetect\include;%OCV2015_ROOT%\modules\hal\include;%OCV2015_ROOT%\modules\highgui\include;%OCV2015_ROOT%\modules\ml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>opencv_core300d.lib;opencv_imgproc300d.lib;opencv_imgcodecs300d.lib;opencv_objdetect300d.lib;opencv_ml300d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%OCV2015_ROOT%\vs2015\WS\10.0\x86\lib\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>%OCV2015_ROOT%\vs2015\WS\10.0\x86\lib\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -156,14 +164,25 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_core300d.dll" />
-    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_imgcodecs300d.dll" />
-    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_imgproc300d.dll" />
-    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_ml300d.dll" />
-    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_objdetect300d.dll" />
+    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_core300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_imgcodecs300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_imgproc300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_ml300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="..\..\..\opencv-vs2015-samples\opencv-vs2015-samples\vs2015\WS\10.0\x86\bin\Debug\opencv_objdetect300d.dll">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
     <None Include="PhotoMaster_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\grpPC1.JPG" />
     <Image Include="Assets\LockScreenLogo.scale-200.png" />
     <Image Include="Assets\SplashScreen.scale-200.png" />
     <Image Include="Assets\Square150x150Logo.scale-200.png" />
@@ -187,6 +206,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Assets\haarcascade_frontalface_alt.xml" />
+    <Xml Include="Assets\haarcascade_fullbody.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
